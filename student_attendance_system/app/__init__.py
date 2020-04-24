@@ -10,7 +10,7 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 app.config['SECRET_KEY']='bcf89ccf37493530152e15de30778064'
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://4zRqTnrPWF:wHuiJzbbOd@remotemysql.com/4zRqTnrPWF"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:''@localhost/attendance_system"
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
