@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+    {% block content %}
+    <meta http-equiv="refresh" content="60">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-2"></div>
+            <div class="col-6 text-center">
+                <h1>
+                    <i class="fas fa-info-circle"></i> Your Subjects
+                </h1>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-1"></div>
+            <div class="col-8 text-center">
+                <h3>
+                    Select a subject of a batch to take attendance of :
+                </h3>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-1"></div>
+            <div class="col-8">
+                <form method="POST",action='/attendance'>
+                    <table class="table table-striped table-dark text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">Subject-Id</th>
+                                <th scope="col">Subject-Name</th>
+                                <th scope="col">Batch-Id</th>
+                                <th scope="col">Select-Subject</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for sub in subjects%}
+                                <tr>
+                                    <td>{{sub.subjectid}}</td>
+                                    <td>{{sub.subjectname}}</td>
+                                    <td>{{sub.batchid}}</td>
+                                    <td>
+                                        <input type="radio" name="options" value='{{sub.subjectid}} {{sub.subjectname}} {{sub.batchid}} {{current_user.id}}' required>
+                                    </td>
+                                </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                    <button type="submit" class="font-weight-bold btn btn-outline-success">Submit</button>
+                </form>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        {% if imgname=="" %}
+            <div class="row" style="margin-top: 5%;">
+                <div class="col-1"></div>
+                <div class="col-8">
+                    <h1 class="text-center">
+                        <i class="fas fa-qrcode"></i> Generate A QR code
+                    </h1>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        {%else%}
+            <div class="row" style="margin-top: 5%;">
+                <div class="col-1"></div>
+                <div class="col-8">
+                    <h1 class="text-center">
+                        <i class="fas fa-qrcode"></i> Generated QR code
+                    </h1>
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-8 text-center font-weight-bold">
+                        <img src="{{url_for('static', filename='qrcodes/'+imgname)}} " class="rounded mx-auto d-block" alt="Please Generate A QR Code">
+                        <h4>
+                            After 1 minute QR Code will expire.
+                        </h4>
+                    Please Scan the QR-CODE To Mark your attendance
+                </div>
+                <div class="col-1"></div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1"></div>
+                <div class="col-8">
+                    <h3 class="text-center">
+                        QR-CODE Detail : {{det}}
+                    </h3>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        {%endif%}
+    </div>
+    {% endblock content %}

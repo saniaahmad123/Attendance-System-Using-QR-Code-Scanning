@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+    {% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-4 text-center">
+                <h1>
+                    <i class="fas fa-info-circle"></i> Developers
+                </h1>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-lg-2 col-sm-0"></div>
+            <div class="col-lg-3 col-sm-5">
+                <img src="{{url_for('static', filename='images/sania.jpg')}}" alt="..." class="img-thumbnail border border-dark rounded-circle" height="200px" width="190px">
+            </div>
+            <div class="col-lg-2 col-sm-1"></div>
+            <div class="col-lg-3 col-sm-5">
+                <img src="{{url_for('static', filename='images/raied.jpg')}} " alt="..." class="img-thumbnail border border-dark rounded-circle" height="200px" width="200px">
+            </div>
+        </div>
+        <div class="row style="margin-top: 5%;">
+            <div class="col-lg-2 col-sm-0"></div>
+            <div class="col-lg-3 col-sm-5 ml-2">
+                <h3>Sania Ahmad</h3>
+                <div class="links ml-5" style="font-size: 30px;">
+                    <a class="text-dark ml-3" href="https://github.com/saniaahmad123/"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-1"></div>
+            <div class="col-lg-3 col-sm-5 ml-3">
+                <h3>Raied Razi</h3>
+                <div class="links ml-2" style="font-size: 30px;">
+                    <a class="text-dark mr-2" href="https://github.com/raiedkhan/"><i class="fab fa-github"></i></a>
+                    <a class="text-primary mr-2" href="https://www.facebook.com/raied.razi"><i class="fab fa-facebook"></i></a>
+                    <a class="text-info" href="https://www.instagram.com/raiedkhan/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}

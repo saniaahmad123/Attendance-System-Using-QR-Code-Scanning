@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+    {% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-4 text-center">
+                <h1>
+                    <i class="fa fa-home" aria-hidden="true"></i> Dashboard
+                </h1>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-lg-2 col-sm-0"></div>
+            <div class="col-lg-3 col-sm-5">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-header font-weight-bold"><i class="fas fa-plus-circle"></i> Take Attendance</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Generate a bar code and project it on screen and let the students scan the barcode
+                        </p>
+                        <a class="btn btn-light font-weight-bold" href="/attendance">
+                            Take Attendance  <i class="far fa-paper-plane"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-1"></div>
+            <div class="col-lg-3 col-sm-5">
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header font-weight-bold">
+                        <i class="far fa-file"></i> Get Report
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            Get students Attendance report of their presence and absence in classes .Go to the link below
+                        </p>
+                        <a class="btn btn-light font-weight-bold" href="">
+                            Get Report  <i class="far fa-paper-plane"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
