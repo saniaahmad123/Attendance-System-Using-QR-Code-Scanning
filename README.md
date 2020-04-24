@@ -6,3 +6,6 @@
 ### 5.Setup Mysql Database by Creating a database using XAMPP server
 ### 6.Change the __init__.py file for changing the database
 ### 7.U are ready to go.USE python run.py to run the code.
+### Demo can be seen on:
+## Admin Link : https://adminqrattendance.herokuapp.com/
+## Student Link : https://studentqrattendance.herokuapp.com/
