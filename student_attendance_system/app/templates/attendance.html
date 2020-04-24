@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+    {% block content %}
+    <!-- <meta http-equiv="refresh" content="60"> -->
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-2"></div>
+            <div class="col-6 text-center">
+                <h1><i class="fas fa-qrcode"></i> Scan the QR-Code</h1>
+                <h4>
+                    After 1 minute QR Code will expire.
+                </h4>
+                Please Scan the QR-CODE To Mark your attendance
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-6">
+                <video id="preview" class="rounded mx-auto d-block video-fluid" style="height:25vw; width:25vw;"></video>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row text-center">
+            <div class="col-2"></div>
+            <div class="col-6" style="display: none;">
+                <form method="Post" action="/attendance/submit">
+                    <input class="form-control" type="text" name="att_det" id="qrcodeinput" value="">
+                    <button type="submit" id="submitqrcode" class="btn btn-primary mb-2"></button>
+                </form>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+            let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+            scanner.addListener('scan', function (content) {
+                document.getElementById("qrcodeinput").value = content;
+                document.getElementById("qrcodeinput").placeholder = content;
+                document.getElementById('submitqrcode').click();
+            });
+            Instascan.Camera.getCameras().then(function (cameras) {
+                if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+                } else {
+                console.error('No cameras found.');
+                }
+            }).catch(function (e) {
+                console.error(e);
+            });
+        </script>
+    {% endblock content %}

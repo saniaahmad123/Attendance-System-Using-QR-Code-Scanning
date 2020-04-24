@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+    {% block content %}
+    <div class="row mt-5">
+        <div class="col-1"></div>
+        <div class="col-8 text-center">
+            <h3>
+                <i class="far fa-file"></i> Attendance Report 
+            </h3>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row" style="margin-top: 5%;">
+        <div class="col-1"></div>
+        <div class="col-8">
+            <form method="POST",action='/attendance'>
+                <table class="table table-striped table-dark text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">Subject-Id</th>
+                            <th scope="col">Subject-Name</th>
+                            <th scope="col">Total Classes</th>
+                            <th scope="col">Attended Classes</th>
+                            <th scope="col">Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sub in subjects%}
+                            <tr>
+                                <td>{{sub.subjectid}}</td>
+                                <td>{{sub.subjectname}}</td>
+                                <td>{{sub.tot_class}}</td>
+                                <td>{{sub.att_class}}</td>
+                                <td>{{sub.att_class/sub.tot_class*100}}</td>
+                            </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    {% endblock content %}

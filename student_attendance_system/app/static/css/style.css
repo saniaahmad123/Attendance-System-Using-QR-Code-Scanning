@@ -1,0 +1,27 @@
+#sidebar{
+    background-color:#ECF0F1;
+    height: 100%;
+    font-weight: bold;
+    color: black;
+}
+#sidebar a{
+    color: #424949;
+    margin-top: 30px;
+}
+#content{
+    margin-top: 50px;
+    margin-left: 210px;
+}
+img[src="/static/qrcodes/"] {
+    display: none;
+}
+
+#sidebar{
+    display: block;
+}
+
+/* @media only screen and (min-width:480px) and (max-width: 992px) {
+    #sidebar{
+        display: none;
+    }
+} */

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+    {% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-2"></div>
+            <div class="col-6">
+                <img src="{{url_for('static', filename='images/check.png')}} " class="rounded mx-auto d-block" alt="Please Generate A QR Code">
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-6 text-center">
+                <h1>Attendance Recorded</h1>
+                <h4>Attendance Details : </h4>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-6 text-center">
+                <b>Subject Details : </b>{{sub_name}} ({{sub_id}})<br>
+                <b>Roll No. </b>{{roll_no}}<br>
+                <b>Batch :</b> {{batch_name}}<br>
+                <b>Total Classes : </b>{{total_class}}<br>
+                <b>Attended Classes : </b>{{attend_class}}
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row text-center font-weight-bold">
+            <div class="col-4">
+                <a class="btn btn-danger" href="/attendance"><i class="fas fa-chevron-left"></i> Go Back</a>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4">
+                <a class="btn btn-success" href="/report"><i class="far fa-file"></i> Attendance Report</a>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
